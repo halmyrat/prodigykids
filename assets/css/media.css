@@ -1,0 +1,464 @@
+@media (min-width: 2000px) {
+    .sc-slider .slick-nextt {
+        right: 33%;
+    }
+    .sc-slider .slick-prevv {
+        left: 33%;
+    }
+}
+
+@media only screen and (max-width: 1920px) {
+    .sc-slider .slick-nextt {
+        right: 27%;
+    }
+    .sc-slider .slick-prevv {
+        left: 26%;
+    }
+}
+
+@media only screen and (max-width: 1828px) {
+    .container_about_desc p {
+        margin: 60px;
+    }
+    .sc-slider .slick-nextt {
+        right: 25%;
+    }
+    .sc-slider .slick-prevv {
+        left: 25%;
+    }
+}
+
+@media only screen and (max-width: 1700px) {
+    .sc-slider .slick-nextt {
+        right: 24%;
+    }
+    .sc-slider .slick-prevv {
+        left: 24%;
+    }
+}
+
+@media only screen and (max-width: 1650px) {
+    .sc-slider .slick-nextt {
+        right: 22%;
+    }
+    .sc-slider .slick-prevv {
+        left: 22%;
+    }
+}
+
+@media only screen and (max-width: 1605px) {
+    .container_about_desc p {
+        margin: 80px;
+    }
+}
+
+@media only screen and (max-width: 1554px) {
+    .container_about_desc p {
+        margin-left: 100px;
+    }
+    #enot-fas {
+        left: 4%;
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+    .sc-slider .slick-nextt {
+        right: 20%;
+    }
+    .sc-slider .slick-prevv {
+        left: 20%;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .sc-slider .slick-nextt {
+        right: 18%;
+    }
+    .sc-slider .slick-prevv {
+        left: 18%;
+    }
+}
+
+@media only screen and (max-width: 1350px) {
+    .sc-slider .slick-nextt {
+        right: 16%;
+    }
+    .sc-slider .slick-prevv {
+        left: 16%;
+    }
+}
+
+@media only screen and (max-width: 1375px) {
+    .container_about_desc p {
+        margin-bottom: 120px;
+    }
+    #enot-fas {
+        left: 2%;
+    }
+    #ananas {
+        left: 5%;
+    }
+    #icecream {
+        right: 5%;
+    }
+}
+
+@media only screen and (max-width: 1224px) {
+    .sc-slider .slick-nextt {
+        right: 14%;
+    }
+    .sc-slider .slick-prevv {
+        left: 14%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    #ananas {
+        top: 5%;
+    }
+    #icecream {
+        top: -10%;
+    }
+    .app_details_body h2 {
+        font-size: 40.11px;
+        line-height: normal;
+    }
+    .app_details_body img {
+        margin-right: 30px;
+    }
+}
+
+@media only screen and (max-width: 1180px) {
+    .sc-slider .slick-nextt {
+        right: 12%;
+    }
+    .sc-slider .slick-prevv {
+        left: 12%;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .sc-slider .slick-nextt {
+        right: 10%;
+    }
+    .sc-slider .slick-prevv {
+        left: 10%;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .sc-slider .slick-nextt {
+        right: 6%;
+    }
+    .sc-slider .slick-prevv {
+        left: 5%;
+    }
+}
+
+@media only screen and (max-width: 940px) {
+    #ananas {
+        top: -10%;
+    }
+    #icecream {
+        top: -10%;
+    }
+    .container_about_desc p {
+        margin-bottom: 160px;
+        margin-top: 60px;
+    }
+    .slick-slide img {
+        width: 80%;
+    }
+    .sc-slider .slick-nextt {
+        right: 2%;
+    }
+    .sc-slider .slick-prevv {
+        left: 2%;
+    }
+}
+
+@media only screen and (max-width: 940px) {
+    .app_container {
+        display: flex;
+        justify-content: center;
+    }
+    .game_list_outer_container_h {
+        display: flex;
+        width: 50%;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .app_details_bottom {
+        height: auto;
+    }
+    .app_detail_carousel {
+        height: auto;
+        background: none;
+        display: block;
+        text-align: center;
+    }
+    .app_detail_carousel>.slick-slider {
+        width: 400px;
+        margin: auto;
+    }
+    .youtube {
+        width: 400px;
+        margin: auto auto 40px auto;
+    }
+    .store_btn_bg {
+        margin-bottom: 40px;
+    }
+    .youtube img {
+        width: 100%;
+    }
+    .jumbotron-ai-header {
+        display: block;
+    }
+    .resume-btn-container {
+        margin: 20px auto;
+        justify-content: flex-end;
+    }
+    .sc-slider .slick-nextt {
+        display: none;
+        opacity: 0;
+    }
+    .sc-slider .slick-prevv {
+        opacity: 0;
+        display: none;
+    }
+    .app_details_body img {
+        margin-right: 50px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .app_container {
+        display: flex;
+        justify-content: center;
+    }
+    .game_list_outer_container_h {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .game_list_item_h {
+        width: 360px;
+        margin-bottom: 35px;
+        margin-right: 0px;
+        position: relative;
+    }
+    .container_about_desc {
+        width: 80%;
+        margin: auto;
+    }
+    .container_about_desc p {
+        margin-bottom: 160px;
+        margin-top: 60px;
+        margin-left: 0px;
+        margin-right: 0;
+    }
+    .option_item {
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .hidden-xs {
+        display: none;
+    }
+    .app_details_bottom h3 {
+        margin: auto 15px;
+        font-size: 26px;
+    }
+    .app_detail_carousel>.slick-slider {
+        width: 260px;
+        margin: auto;
+    }
+    .youtube {
+        width: 260px;
+        margin: auto auto 40px auto;
+    }
+    .header_btn_container>a>img {
+        min-width: 150px;
+    }
+    .header_btn_container a {
+        margin-right: 14px;
+        transition: 0.3s;
+    }
+    .resume-btn-container a {
+        display: block;
+        padding: 10px 30px;
+        color: #000;
+        background: #fff;
+        border-radius: 15px;
+        font-size: 22px;
+    }
+    #trinnozavr {
+        margin-bottom: 80px;
+        opacity: 0;
+    }
+    #icecream {
+        width: 40%;
+        opacity: 0;
+    }
+    #ananas {
+        width: 40%;
+        opacity: 0;
+    }
+    #enot-fas {
+        width: 40%;
+        opacity: 0;
+    }
+    .slick-dots li.slick-active button:before {
+        transform: scale(0.5) !important;
+    }
+    .slick-dots li button:before {
+        transform: scale(0.4) !important;
+    }
+    .app_store_btns img {
+        margin-right: 25px;
+        margin-left: 25px;
+        transition: .3s;
+        transform: scale(1.2);
+    }
+    .app_details_body img {
+        transform: scale(0.7);
+    }
+    .app_details_body h2 {
+        font-size: 35px;
+        line-height: normal;
+    }
+    .app_details_body p {
+        font-size: 20px;
+    }
+    .app_details_container p {
+        font-size: 16px;
+    }
+    .app_details_appname {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #youtube {
+        overflow: hidden;
+        padding-bottom: 56.25%;
+        position: relative;
+        height: 0;
+        min-height: unset !important;
+        min-width: 500px !important;
+    }
+    #youtube iframe {
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+    .sc-slider {
+        padding: 0 0 0 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .slick-slide img {
+        width: 60%
+    }
+    .sc-slider .slick-arrow {
+        top: 40%;
+    }
+}
+
+@media (max-width: 510px) {
+    #youtube {
+        overflow: hidden;
+        padding-bottom: 56.25%;
+        position: relative;
+        height: 0;
+        min-height: unset !important;
+        min-width: 400px !important;
+    }
+    .slick-slide img {
+        width: 40%
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .sc-slider .slick-track {
+        height: 150px;
+    }
+    #slick-prevv {
+        display: none !important;
+    }
+    #youtube {
+        min-width: 280px !important;
+    }
+    .game_list_item_h {
+        width: 320px;
+        margin-bottom: 35px;
+        margin-right: 0px;
+        position: relative;
+    }
+    .featured_games h4 {
+        font-size: 38px;
+    }
+    .header_btn_container>a>img {
+        min-width: 100px;
+    }
+    .header_btn_container a {
+        margin-right: 8px;
+        transition: 0.3s;
+    }
+    .ai-job-desc-container h1 {
+        color: #fff;
+        font-size: 18px;
+    }
+    .ai-job-desc-container h2 {
+        color: #fff;
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    .ai-job-desc-container ul {
+        color: #fff;
+        padding: 0px;
+        list-style: none;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    .ai-job-desc-container p {
+        color: #fff;
+        font-size: 18px;
+    }
+    .slick-slide img {
+        width: 32%;
+    }
+    .sc-slider .slick-arrow {
+        width: 30px;
+        display: none !important;
+    }
+    .app-screenshots-section h4 {
+        font-size: 40px;
+        margin-bottom: 0px;
+    }
+    .slick-dots li {
+        margin: 0 5px !important;
+    }
+    .app_store_btns img {
+        margin-right: 5px;
+        margin-left: 5px;
+        transition: .3s;
+        transform: scale(1);
+    }
+    .app_details_body h2 {
+        font-size: 26px;
+        line-height: normal;
+    }
+    .sc-slider {
+        padding: 0 0 0 0;
+    }
+    .sc-wrap {
+        padding: 0 0 0 0;
+    }
+}

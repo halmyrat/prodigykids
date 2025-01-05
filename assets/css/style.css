@@ -833,3 +833,18 @@
     color: #fff !important;
     background-color: #4c99f8;
 }
+
+.privacy-policy {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.privacy-policy a {
+    color: #17a2b8;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.privacy-policy a:hover {
+    text-decoration: underline;
+}

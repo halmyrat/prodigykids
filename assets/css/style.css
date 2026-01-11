@@ -816,8 +816,8 @@
 }
 
 .footer .text-info {
-    border: 3px solid #4c99f8;
-    color: #4c99f8 !important;
+    border: 3px solid #485DED;
+    color: #485DED !important;
     border-radius: 30px;
     cursor: pointer;
     display: inline-block;
@@ -847,4 +847,5 @@
 
 .privacy-policy a:hover {
     text-decoration: underline;
+
 }

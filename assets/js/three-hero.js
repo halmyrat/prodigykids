@@ -8,7 +8,7 @@
     // Scene
     var scene = new THREE.Scene();
     scene.background = new THREE.Color(0xe8f4ff);
-    scene.fog = new THREE.FogExp2(0xe8f4ff, 0.04);
+    scene.fog = new THREE.FogExp2(0xe8f4ff, 0.035);
 
     // Camera
     var camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 100);
@@ -23,10 +23,10 @@
     container.appendChild(renderer.domElement);
 
     // Lights
-    var ambient = new THREE.AmbientLight(0xffffff, 0.7);
+    var ambient = new THREE.AmbientLight(0xffffff, 0.75);
     scene.add(ambient);
 
-    var dirLight = new THREE.DirectionalLight(0x6ab4ff, 0.9);
+    var dirLight = new THREE.DirectionalLight(0x6ab4ff, 0.85);
     dirLight.position.set(3, 5, 6);
     dirLight.castShadow = true;
     scene.add(dirLight);
@@ -35,58 +35,58 @@
     fillLight.position.set(-4, -2, 3);
     scene.add(fillLight);
 
-    // Card geometry — slightly thick box for a physical card look
-    var cardW = 2.7;
-    var cardH = 1.7;
-    var cardDepth = 0.04;
-    var cardGeom = new THREE.BoxGeometry(cardW, cardH, cardDepth);
+    // App-icon proportions — square with slight thickness
+    var iconSize = 1.8;   // square icons
+    var cardDepth = 0.12; // thicker depth for chunky icon feel
+    var cardGeom = new THREE.BoxGeometry(iconSize, iconSize, cardDepth);
 
-    // Shadow plane geometry (slightly larger, dark)
-    var shadowGeom = new THREE.PlaneGeometry(cardW + 0.15, cardH + 0.15);
+    // Shadow plane (slightly larger, offset behind)
+    var shadowGeom = new THREE.PlaneGeometry(iconSize + 0.2, iconSize + 0.2);
 
     var loader = new THREE.TextureLoader();
+
+    // Use app icon / cover images instead of wide screenshots
     var imageSrcs = [
-        'assets/images/1.png',
-        'assets/images/2.png',
-        'assets/images/3.png'
+        'assets/images/logo.png',
+        'assets/images/nutcracker.jpg',
+        'assets/images/banners/mini_BookCover.jpg'
     ];
-    var xPositions = [-3.2, 0, 3.2];
-    var yOffsets  = [0.15, -0.1, 0.2]; // slight height variation
+
+    var xPositions = [-2.8, 0, 2.8];
+    var yOffsets   = [0.1, -0.15, 0.1];
     var cards = [];
 
     imageSrcs.forEach(function (src, i) {
         var group = new THREE.Group();
 
-        // Soft drop-shadow plane behind the card
+        // Soft drop-shadow plane behind the icon
         var shadowMat = new THREE.MeshBasicMaterial({
             color: 0x000000,
             transparent: true,
-            opacity: 0.18,
+            opacity: 0.20,
             depthWrite: false
         });
         var shadowPlane = new THREE.Mesh(shadowGeom, shadowMat);
-        shadowPlane.position.set(0.08, -0.1, -cardDepth / 2 - 0.01);
+        shadowPlane.position.set(0.07, -0.09, -cardDepth / 2 - 0.01);
         group.add(shadowPlane);
 
-        // White card backing (edges visible as border)
-        var backMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.4 });
-        var back = new THREE.Mesh(cardGeom, backMat);
-        group.add(back);
-
-        // Image face
+        // Load icon texture
         var texture = loader.load(src);
         texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
-        // Front face only; reuse white for other sides
+
+        // Per-face materials: icon on front, soft rounded-white on edges/back
+        var edgeColor = 0xffffff;
         var materials = [
-            new THREE.MeshStandardMaterial({ color: 0xf0f0f0 }), // right
-            new THREE.MeshStandardMaterial({ color: 0xf0f0f0 }), // left
-            new THREE.MeshStandardMaterial({ color: 0xf0f0f0 }), // top
-            new THREE.MeshStandardMaterial({ color: 0xf0f0f0 }), // bottom
-            new THREE.MeshStandardMaterial({ map: texture }),     // front
-            new THREE.MeshStandardMaterial({ color: 0xfafafa })   // back
+            new THREE.MeshStandardMaterial({ color: edgeColor, roughness: 0.5 }), // right
+            new THREE.MeshStandardMaterial({ color: edgeColor, roughness: 0.5 }), // left
+            new THREE.MeshStandardMaterial({ color: edgeColor, roughness: 0.5 }), // top
+            new THREE.MeshStandardMaterial({ color: edgeColor, roughness: 0.5 }), // bottom
+            new THREE.MeshStandardMaterial({ map: texture, roughness: 0.3 }),      // front (icon)
+            new THREE.MeshStandardMaterial({ color: 0xf5f5f5, roughness: 0.6 })   // back
         ];
-        var front = new THREE.Mesh(cardGeom, materials);
-        group.add(front);
+
+        var icon = new THREE.Mesh(cardGeom, materials);
+        group.add(icon);
 
         group.position.set(xPositions[i], yOffsets[i], 0);
         scene.add(group);
@@ -109,11 +109,13 @@
 
         cards.forEach(function (item, i) {
             var g = item.group;
-            // Gentle floating bob — each card offset in phase
-            g.position.y = item.baseY + Math.sin(t * 0.7 + i * 1.3) * 0.12;
-            // Tilt toward mouse cursor
-            g.rotation.y = mouse.x * 0.18 + Math.sin(t * 0.4 + i * 0.9) * 0.025;
-            g.rotation.x = -mouse.y * 0.10 + Math.cos(t * 0.5 + i * 0.7) * 0.015;
+            // Gentle floating bob with staggered phase
+            g.position.y = item.baseY + Math.sin(t * 0.7 + i * 1.3) * 0.13;
+            // Subtle tilt toward mouse
+            g.rotation.y = mouse.x * 0.20 + Math.sin(t * 0.4 + i * 0.9) * 0.03;
+            g.rotation.x = -mouse.y * 0.12 + Math.cos(t * 0.5 + i * 0.7) * 0.02;
+            // Gentle idle spin nudge
+            g.rotation.z = Math.sin(t * 0.3 + i * 2.1) * 0.018;
         });
 
         renderer.render(scene, camera);
@@ -121,7 +123,7 @@
 
     animate();
 
-    // Resize
+    // Resize handler
     window.addEventListener('resize', function () {
         var nw = container.clientWidth;
         var nh = container.clientHeight;

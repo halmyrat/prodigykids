@@ -1,15 +1,57 @@
+:root {
+    --color-primary: #4c99f8;
+    --color-accent: #f05523;
+    --color-bg-contact: #d5f2f1;
+    --color-bg-about: #f2fbfd;
+    --color-text-muted: #697777;
+    --color-footer-bg: #f4f4f4;
+    --radius-card: 20px;
+    --shadow-card: 0 8px 32px rgba(76, 153, 248, 0.10);
+    --shadow-card-hover: 0 20px 48px rgba(76, 153, 248, 0.20);
+    --transition: 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 @font-face {
     font-family: "Round";
     src: url("fonts/a_FuturaRoundDemi_2279.ttf");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Light";
     src: url("fonts/TTRounds-Regular.ttf");
+    font-display: swap;
 }
 
 body {
     font-family: "Round";
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(32px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s var(--transition), transform 0.7s var(--transition);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .section h2.title {
@@ -30,6 +72,8 @@ body {
     position: absolute;
     z-index: 2;
     background-color: transparent !important;
+    backdrop-filter: blur(0px);
+    transition: backdrop-filter 0.3s ease;
 }
 
 @media (min-width: 1200px) {
@@ -107,8 +151,8 @@ body {
     padding: 15px 20px;
     text-align: center;
     font-size: 1.4em;
-    color: #4c99f8;
-    transition: 0.2s;
+    color: var(--color-primary);
+    transition: var(--transition);
 }
 
 .navbar.home .navbar-collapse .navbar-nav .nav-item a img {
@@ -186,7 +230,7 @@ body {
 .navbar.home .navbar-collapse .navbar-nav .focus {
     position: absolute;
     border-radius: 35px;
-    background-color: #4c99f8;
+    background-color: var(--color-primary);
     pointer-events: none;
     z-index: 0;
     transition: 0.3s;
@@ -370,8 +414,8 @@ body {
     padding: 15px 20px;
     text-align: center;
     font-size: 1.4em;
-    color: #4c99f8;
-    transition: 0.2s;
+    color: var(--color-primary);
+    transition: var(--transition);
 }
 
 .navbar.details .navbar-collapse .navbar-nav .nav-item a img {
@@ -449,7 +493,7 @@ body {
 .navbar.details .navbar-collapse .navbar-nav .focus {
     position: absolute;
     border-radius: 35px;
-    background-color: #4c99f8;
+    background-color: var(--color-primary);
     pointer-events: none;
     z-index: 0;
     transition: 0.3s;
@@ -552,6 +596,19 @@ body {
 
 .carousel.slide {
     height: 80vh;
+    position: relative;
+}
+
+.carousel.slide::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: linear-gradient(to top, rgba(0,0,0,0.25), transparent);
+    pointer-events: none;
+    z-index: 1;
 }
 
 .carousel.slide.det {
@@ -825,10 +882,18 @@ body {
 .contact form .form-group textarea {
     margin-top: 20px;
     height: 50px;
-    border: none;
+    border: 2px solid transparent;
     outline: none;
     background-color: #ebfffe;
     border-radius: 20px;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.contact form .form-group input:focus,
+.contact form .form-group textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(76, 153, 248, 0.12);
+    background-color: #fff;
 }
 
 @media (min-width: 500px) {
@@ -853,19 +918,26 @@ body {
     display: block;
     margin: auto;
     margin-top: 50px;
-    border: 3px solid #4c99f8;
-    color: #4c99f8;
+    border: 3px solid var(--color-primary);
+    color: var(--color-primary);
     border-radius: 30px;
     cursor: pointer;
-    padding: 7px 20px;
+    padding: 10px 36px;
     font-size: 1.5em;
     background-color: transparent;
-    transition: 0.2s;
+    transition: var(--transition);
+    letter-spacing: 0.03em;
 }
 
 .contact form input[type=submit]:hover {
     color: #fff;
-    background-color: #4c99f8;
+    background-color: var(--color-primary);
+    box-shadow: 0 6px 20px rgba(76, 153, 248, 0.30);
+    transform: translateY(-2px);
+}
+
+.contact form input[type=submit]:active {
+    transform: translateY(0);
 }
 
 .footer {

@@ -5,10 +5,10 @@
     var w = container.clientWidth;
     var h = container.clientHeight;
 
-    // Scene
+    // Scene — background matches --color-bg-light: #f5f7ff
     var scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xe8f4ff);
-    scene.fog = new THREE.FogExp2(0xe8f4ff, 0.035);
+    scene.background = new THREE.Color(0xf5f7ff);
+    scene.fog = new THREE.FogExp2(0xf5f7ff, 0.035);
 
     // Camera
     var camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 100);
